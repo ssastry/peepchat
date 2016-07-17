@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: GPx4VGjeEFM1xsERhVnbTibYseMio1OZpbAemn1cYBQIrGwbGdeujDUAJaZfynhf1XzL8n5Mh7KdREFtidXgMwvtQw+6GF73SO4UBLs6LWPRQJIwml66s1RMCqJPx7wBscZ4b8dhW7Xx5jeRrx+9BhFnCTNjL7Mdz+GrC9VTu/ozxALEooUvmQwvSrzfRDOCMKpedwXz9wJ4V+LVAhSWem4hC5AuDWAD2QOCQe1msX0lmFgMHWdAh3NdBD9B+ugFFTe8M9FIYClwP5LPtd0t+LHH44axeN8ZsorG/0Me1jkidpPhEjNrfroiQbvuFc95LFdixr4wr/5FcHCFwdpgrn779wdDs9neSgwPNkCYhVC/i28QHZmnPutHunjBcTGgMQEuyv/MDAhK9v9YnHRoXla3rhfPGzt0BmeELwjt6rdGaOmiE5v2D8wWw8rSHgfBNyo/9g7dX7jfKiMNPa7j55LX2IRcXFv5zdaTOIrCwstGk5RFcVtezTFyy50W4YqrYxSFIEifnige8rAPlgymF41TkIPldSgwctvrcP2U1oPgKVS5WuosNT3Uyfz9VSIX1OO30vK7nhvRCs0vjVkG18sVNcUzzbtFzzAh9o/BVKwldfxdMf/6ZR9o9Y7PdrrP9cc521Gv1+yfIP52mxJygfpLxTbEleaqTfXtfYgfAQ0=
+  app: pure-atoll-64125
+  on:
+    repo: ssastry/peepchat
